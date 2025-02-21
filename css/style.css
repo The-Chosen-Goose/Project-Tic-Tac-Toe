@@ -1,0 +1,270 @@
+@font-face {
+    font-family: font1;
+    src: url(fonts/Corza.otf);
+}
+
+@font-face {
+    font-family: font2;
+    src: url(fonts/OWLY\ BARN\ Personal\ Use.ttf)
+}
+
+@font-face {
+    font-family: title;
+    src: url(fonts/TypewriterPress-Regular.ttf)
+}
+
+:root{
+    --main-font:font1;
+    --second-font:font2;
+    --first-color:#6B6BFF;
+    --second-color:#FE6E25;
+}
+
+html{
+    height:100vh;
+    width: 100vw;
+}
+
+body{
+    margin:0;
+    height:100vh;
+    overflow: hidden;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color:#E2E8F0;
+}
+
+.header {
+    width:100%;
+    height:100px;
+    font-family:var(--main-font);
+    font-size:400%;
+    display:flex;
+    align-self:center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    background-color:white;
+    box-shadow: 5px 5px 10px rgba(0,0,0,.2);
+    border-bottom:3px solid black;
+}
+
+
+.game{
+    width:100%;
+    height:100%;
+    padding:1em;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    gap:5em;
+}
+
+.gamecontainer {
+    width:100%;
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items:center;
+}
+
+.roundwinner{
+    height:40px;
+    font-family: var(--second-font);
+    font-size:xx-large;
+}
+
+.gameboard{
+    width:400px;
+    height:400px;
+    display:grid;
+    grid-template: repeat(3,1fr) / repeat(3,1fr);
+    gap:15px;
+    padding:10px;
+    justify-self: center;
+}
+
+.gameboard > * {
+    background-color:white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:10px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,.2);
+    transition:.1s;
+    border:3px solid black;
+}
+
+.gameboard > *:hover {
+    transform: scale(1.05);
+}
+
+.gameboard > * > img {
+    height:70px;
+    width:70px;
+}
+
+.ModeSelect{
+    display:grid;
+    grid-template: 100px 1fr / 1fr 1fr;
+    column-gap: 3em;
+}
+
+.ModeSelect :first-child{
+    grid-column:1/3;
+    align-items: center;
+    justify-self: center;
+    font-family: var(--second-font);
+    font-size:250%;
+}
+
+#pvp {
+    grid-column: 1/2;
+}
+
+
+#pvp,#pva{
+    display:flex;
+    width:130px;
+    height:130px;
+    border-radius:25px;
+    background-color:white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:1em;
+    border: 3px solid;
+    box-shadow: 1px 1px 10px rgba(0,0,0,.3);
+    transition:.2s;
+    font-family:var(--second-font);
+}
+
+.ModeSelect > *:hover img{
+    display:none;
+}
+
+#pvp > :last-child {
+    color:var(--first-color);
+    font-size:x-large;
+}
+
+#pva > :last-child {
+    color:var(--second-color);
+    font-size:x-large;
+}
+
+#pvp:hover {
+    transform: scale(1.1);
+    border-color:var(--first-color);
+}
+
+#pva:hover {
+    transform:scale(1.1);
+    border-color:var(--second-color);
+}
+
+#pvp > img,
+#pva > img {
+    height:75px;
+    width:75px;
+}
+
+.hidden {
+    display:none !important;
+}
+
+.scoreboard{
+    font-family: var(--second-font);
+    font-size:xx-large;
+    display:flex;
+    flex-direction:column;
+    gap:1em;
+    justify-self: center;
+    background-color:white;
+    padding:15px;
+    border:3px solid black;
+    border-radius:12px;
+}
+
+.scoreboard :first-child {
+    color:var(--first-color);
+}
+
+.scoreboard :last-child{
+    color:var(--second-color);
+}
+
+.game > div:last-of-type{
+    display:flex;
+    gap:2em;
+}
+
+#nextround, 
+#restart {
+    width:110px;
+    height:80px;
+    font-family:var(--second-font);
+    font-size:x-large;
+    border-radius:12px;
+    border:3px solid black;
+    background-color:white;
+    transition:.1s ease-in;
+}
+
+#nextround:hover,
+#restart:hover {
+    transform: scale(1.1);
+}
+
+.recolorBlue{
+    background-color:var(--first-color);
+    transition:.2s ease-in;
+}
+
+.recolorOrange{
+    background-color: var(--second-color);
+    transition:.2s ease-in;
+}
+
+.recolorGrey{
+    background-color:#464F5F;
+    transition:.2s ease-in;
+}
+
+.inactive {
+    border:3px solid grey !important;
+    color:grey;
+    transition: .3s;
+}
+
+.active {
+    border:3px solid red !important;
+    color:red;
+    transition:.3s;
+}
+
+.footer {
+    width:100%;
+    height:50px;
+    font-family:title;
+    font-size:large;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    gap:1em;
+}
+
+.footer > img {
+    height:30px;
+    width:30px;
+    transition:.1s ease-in;
+}
+
+.footer > img:hover {
+    transform: scale(1.2);
+}
+
+.filterWhite {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7456%) hue-rotate(100deg) brightness(105%) contrast(100%);
+}
